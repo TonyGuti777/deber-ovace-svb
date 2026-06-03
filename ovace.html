@@ -3,55 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sala 02: Unidad OVACE | ITECSUR</title>
+    <title>SALA 01: Soporte Vital Básico | ITECSUR</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-900 text-slate-200 p-10 font-sans">
+<body class="bg-slate-950 text-slate-200 font-sans p-6 md:p-12">
 
-    <nav class="max-w-5xl mx-auto mb-10"><a href="index.html" class="text-xs font-mono text-slate-500 hover:text-amber-500 uppercase tracking-widest">← Volver al catálogo</a></nav>
+    <!-- Navegación -->
+    <nav class="max-w-6xl mx-auto mb-12 flex justify-between items-center border-b border-slate-800 pb-6">
+        <a href="index.html" class="text-blue-500 font-bold hover:text-white transition">← REGRESAR AL VESTÍBULO</a>
+        <span class="text-slate-500 text-xs font-mono tracking-widest">SISTEMA VIRTUAL ITECSUR v2.0</span>
+    </nav>
 
-    <main class="max-w-5xl mx-auto bg-slate-950 p-12 border border-slate-800 rounded-xl shadow-2xl">
-        <header class="border-b border-slate-800 pb-8 mb-10">
-            <h1 class="text-4xl font-bold text-white">Obstrucción Vía Aérea (OVACE)</h1>
-            <p class="text-amber-500 mt-2 font-mono text-sm uppercase">Módulo de Simulación Biomecánica - ITECSUR</p>
-        </header>
+    <main class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
+        
+        <!-- COLUMNA IZQUIERDA: INFORMACIÓN TÉCNICA -->
+        <div class="lg:col-span-2 space-y-10">
+            <header>
+                <h1 class="text-5xl font-black text-white uppercase tracking-tight">Protocolo SVB: Resucitación Avanzada</h1>
+                <p class="text-blue-400 mt-4 font-mono text-sm uppercase">Fundamentación fisiopatológica de la cadena de supervivencia</p>
+            </header>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <!-- Sección de información técnica -->
-            <div class="space-y-6">
-                <h3 class="text-lg font-bold border-l-4 border-amber-500 pl-3">Protocolo de Emergencia</h3>
-                <p class="text-sm text-slate-400 text-justify">La maniobra de Heimlich se fundamenta en la compresión brusca del epigastrio. Según protocolos de ITECSUR, se requiere una fuerza dirigida hacia arriba (cefálica) para maximizar la presión intratorácica. Una presión insuficiente no logrará superar la resistencia mecánica del objeto en la glotis.</p>
-            </div>
-
-            <!-- Interacción funcional -->
-            <div class="bg-slate-900 p-8 rounded-lg border border-slate-800">
-                <label class="block text-xs uppercase mb-4 text-slate-500">Simulador de presión (Heimlich)</label>
-                <input type="range" id="fuerza" min="0" max="100" value="0" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer accent-amber-500">
-                <div id="resultado" class="mt-6 p-4 text-center border border-slate-700 bg-slate-950 font-bold text-sm">
-                    Ajuste la fuerza para simular la maniobra
+            <section class="space-y-6">
+                <h2 class="text-2xl font-bold text-blue-500 border-l-4 border-blue-500 pl-4">1. Dinámica del Paro Cardiorrespiratorio</h2>
+                
+                <!-- Imagen actualizada -->
+                <div class="bg-slate-950 p-4 border border-slate-800 rounded">
+                    <img src="https://eboraformacion.es/wp-content/uploads/2023/07/CURSO-RCP-ONLINE.webp" alt="Formación RCP" class="w-full h-auto rounded shadow-lg">
+                    <p class="text-[10px] text-slate-500 mt-2 text-center italic">Ilustración: Protocolos de reanimación y soporte vital profesional.</p>
                 </div>
-            </div>
+
+                <p class="text-slate-400 leading-relaxed text-justify">
+                    El paro cardiorrespiratorio (PCR) implica el cese brusco de la actividad mecánica cardíaca, resultando en una anoxia tisular inmediata, siendo el sistema nervioso central el órgano más vulnerable. La eficacia del SVB se mide por la capacidad de mantener el gasto cardíaco en un 30% del nivel basal mediante compresiones torácicas. Se prioriza la secuencia C-A-B sobre la antigua A-B-C para disminuir el tiempo de inicio de las compresiones torácicas, eje vital para la perfusión coronaria.
+                </p>
+            </section>
+
+            <section class="grid grid-cols-2 gap-6">
+                <div class="bg-slate-900 p-6 border border-slate-800 rounded">
+                    <h4 class="text-blue-500 font-bold mb-2">Parámetros de Compresión</h4>
+                    <ul class="text-xs space-y-2 text-slate-400">
+                        <li>• Frecuencia: 100 - 120 cpm</li>
+                        <li>• Profundidad: 5.0 - 6.0 cm</li>
+                        <li>• Expansión: Retroceso torácico total</li>
+                        <li>• Tiempo: Ciclos de 2 minutos</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-900 p-6 border border-slate-800 rounded">
+                    <h4 class="text-blue-500 font-bold mb-2">Protocolo DEA</h4>
+                    <p class="text-xs text-slate-400">El uso de desfibrilador externo automático (DEA) es mandatorio en ritmos desfibrilables (FV/TV sin pulso). El análisis de ritmo debe ser interrumpido menos de 10 segundos antes y después del choque.</p>
+                </div>
+            </section>
         </div>
 
-        <!-- Bibliografía Completa -->
-        <section class="mt-20 pt-8 border-t border-slate-800">
-            <h5 class="text-xs font-bold text-amber-500 uppercase mb-4">Bibliografía Técnica</h5>
-            <ul class="text-[10px] text-slate-500 space-y-2 font-mono">
-                <li>[01] ITECSUR (2026). <em>Manual de Procedimientos en Emergencias Prehospitalarias</em>. Cap. 4: Obstrucción de Vía Aérea.</li>
-                <li>[02] AHA (2025). <em>Guías de Reanimación Cardiopulmonar y Atención Cardiovascular</em>.</li>
-                <li>[03] Sociedad Ecuatoriana de Emergencias. <em>Protocolos de Manejo de Cuerpo Extraño en Adultos</em>.</li>
-            </ul>
-        </section>
+        <!-- COLUMNA DERECHA: JUEGO INTERACTIVO -->
+        <aside class="bg-slate-900 p-8 border border-blue-900 rounded-lg shadow-xl">
+            <h3 class="text-white font-bold mb-6">SIMULADOR DE DECISIÓN</h3>
+            <div id="game" class="space-y-4">
+                <p class="text-xs text-slate-500 mb-6">Selecciona el orden correcto de inicio:</p>
+                <button onclick="check(1)" class="w-full p-4 bg-slate-950 border border-slate-800 hover:border-blue-500 transition text-sm text-left">A. Iniciar compresiones inmediatas</button>
+                <button onclick="check(2)" class="w-full p-4 bg-slate-950 border border-slate-800 hover:border-blue-500 transition text-sm text-left">B. Evaluar escena primero</button>
+                <button onclick="check(3)" class="w-full p-4 bg-slate-950 border border-slate-800 hover:border-blue-500 transition text-sm text-left">C. Ventilar al paciente</button>
+            </div>
+            <div id="msg" class="mt-8 font-bold text-center p-4 hidden"></div>
+        </aside>
     </main>
 
+    <!-- BIBLIOGRAFÍA -->
+    <footer class="max-w-6xl mx-auto mt-20 pt-10 border-t border-slate-800 text-[10px] text-slate-600 font-mono italic text-center">
+        [FUENTES ITECSUR 2026] Manual de Soporte Vital Básico / Guías de Reanimación Cardiopulmonar (AHA 2025-2026) / Protocolos de Estabilización Hemodinámica - Facultad de Emergencias Médicas.
+    </footer>
+
     <script>
-        const slider = document.getElementById('fuerza');
-        const res = document.getElementById('resultado');
-        slider.addEventListener('input', function() {
-            if(this.value < 40) { res.innerText = "Presión insuficiente: Obstrucción persiste."; res.className = "mt-6 p-4 text-center border border-red-900 bg-red-950 text-red-200 font-bold text-sm"; }
-            else if(this.value < 80) { res.innerText = "Presión adecuada: Desobstrucción parcial."; res.className = "mt-6 p-4 text-center border border-yellow-900 bg-yellow-950 text-yellow-200 font-bold text-sm"; }
-            else { res.innerText = "¡Éxito! Cuerpo extraño expulsado."; res.className = "mt-6 p-4 text-center border border-green-900 bg-green-950 text-green-200 font-bold text-sm"; }
-        });
+        function check(val) {
+            const msg = document.getElementById('msg');
+            msg.classList.remove('hidden');
+            if(val === 2) { 
+                msg.innerText = "¡CORRECTO! Seguridad es prioridad."; 
+                msg.className = "mt-8 p-4 bg-green-950 text-green-500 border border-green-800 font-bold text-sm";
+            } else { 
+                msg.innerText = "ERROR: Revisar protocolo de seguridad."; 
+                msg.className = "mt-8 p-4 bg-red-950 text-red-500 border border-red-800 font-bold text-sm";
+            }
+        }
     </script>
 </body>
 </html>
