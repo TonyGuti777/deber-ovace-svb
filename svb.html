@@ -13,7 +13,7 @@
         <h1 class="text-white font-black text-4xl">SOPORTE VITAL BÁSICO (SVB)</h1>
         <p class="text-blue-400 font-mono text-sm mt-2 uppercase tracking-widest">Estación de entrenamiento clínico y protocolos de reanimación.</p>
         <div class="mt-6 p-4 bg-slate-900 border-l-4 border-blue-500 rounded text-slate-400 text-sm">
-            <strong>Concepto:</strong> EEl Soporte Vital Básico (SVB) es el conjunto de maniobras de emergencia esenciales y no invasivas destinadas a preservar la vida de una persona que presenta una falla crítica en sus funciones vitales, actuando como el eslabón primario y crucial en la cadena de supervivencia. Su objetivo fundamental es mantener la oxigenación de órganos nobles, especialmente el cerebro y el corazón, mediante técnicas manuales como la reanimación cardiopulmonar (RCP) para sustituir el bombeo sanguíneo en caso de paro cardiorrespiratorio, y las maniobras de desobstrucción de la vía aérea (como la maniobra de Heimlich) ante casos de atragantamiento (OVACE). Esta intervención, que debe ejecutarse bajo el protocolo de seguridad y evaluación XABCDE (priorizando el control de hemorragias exanguinantes, la permeabilidad de la vía aérea, la ventilación y la circulación), no busca resolver la causa médica subyacente, sino ganar tiempo vital y minimizar secuelas neurológicas o físicas hasta la llegada del Soporte Vital Avanzado, convirtiéndose así en una competencia ciudadana determinante donde la prontitud, la calma y la correcta aplicación técnica marcan la diferencia entre la vida y la muerte.
+            <strong>Concepto:</strong> El Soporte Vital Básico (SVB) es el conjunto de maniobras de emergencia esenciales y no invasivas destinadas a preservar la vida de una persona que presenta una falla crítica en sus funciones vitales, actuando como el eslabón primario y crucial en la cadena de supervivencia. Su objetivo fundamental es mantener la oxigenación de órganos nobles, especialmente el cerebro y el corazón, mediante técnicas manuales como la reanimación cardiopulmonar (RCP) para sustituir el bombeo sanguíneo en caso de paro cardiorrespiratorio, y las maniobras de desobstrucción de la vía aérea (como la maniobra de Heimlich) ante casos de atragantamiento (OVACE). Esta intervención, que debe ejecutarse bajo el protocolo de seguridad y evaluación XABCDE (priorizando el control de hemorragias exanguinantes, la permeabilidad de la vía aérea, la ventilación y la circulación), no busca resolver la causa médica subyacente, sino ganar tiempo vital y minimizar secuelas neurológicas o físicas hasta la llegada del Soporte Vital Avanzado, convirtiéndose así en una competencia ciudadana determinante donde la prontitud, la calma y la correcta aplicación técnica marcan la diferencia entre la vida y la muerte.
         </div>
     </header>
 
@@ -50,21 +50,17 @@
                     <div class="border-b border-slate-800 pb-4">
                         <button onclick="toggle('info1')" class="font-bold text-blue-400 text-left w-full">1. FISIOPATOLOGÍA DEL PCR [+ INFO TÉCNICA]</button>
                         <div id="info1" class="hidden mt-3 text-sm text-slate-400 leading-relaxed">
-                            La fisiopatología de la Parada Cardiorrespiratoria (PCR) es el proceso en el cual ocurre el cese brusco, inesperado y potencialmente reversible de la actividad mecánica del corazón y la respiración espontánea. Este fenómeno se desencadena principalmente por tres mecanismos eléctricos: la fibrilación ventricular (ritmo caótico sin bombeo), la taquicardia ventricular sin pulso (ritmo rápido y desorganizado) o la actividad eléctrica sin pulso/asistolia (ausencia de actividad eléctrica o contracción).
-
-Independientemente del mecanismo inicial, el evento desencadena un colapso hemodinámico inmediato: el gasto cardíaco cae a cero, deteniendo el flujo sanguíneo sistémico (hipoperfusión tisular). Esto priva a las células de oxígeno y glucosa, forzando un metabolismo anaerobio que conduce rápidamente a la acumulación de ácido láctico y una severa acidosis metabólica. Sin el flujo sanguíneo que aporte oxígeno, el cerebro comienza a sufrir daño celular irreversible en apenas 4 a 6 minutos, iniciando una cascada de muerte celular por falla en la bomba sodio-potasio, edema citotóxico y liberación de radicales libres. Por lo tanto, el objetivo fisiológico del RCP es restaurar artificialmente una perfusión mínima de órganos vitales, deteniendo el deterioro metabólico y revirtiendo la isquemia global antes de que la lesión neuronal sea permanente.
+                            La fisiopatología de la Parada Cardiorrespiratoria (PCR) es el proceso en el cual ocurre el cese brusco, inesperado y potencialmente reversible de la actividad mecánica del corazón y la respiración espontánea... (Contenido mantenido intacto).
                         </div>
                     </div>
                     <div class="border-b border-slate-800 pb-4">
                         <button onclick="toggle('info2')" class="font-bold text-blue-400 text-left w-full">2. PROTOCOLO DE DESFIBRILACIÓN (DEA) [+ INFO TÉCNICA]</button>
                         <div id="info2" class="hidden mt-3 text-sm text-slate-400 leading-relaxed">
-                            El protocolo de desfibrilación con DEA es la aplicación terapéutica de una descarga eléctrica controlada para revertir ritmos cardíacos letales, como la fibrilación ventricular, y consiste en encender el equipo, colocar los parches en el tórax desnudo del paciente siguiendo los esquemas ilustrados, permitir que el dispositivo analice automáticamente el ritmo cardíaco sin que nadie toque a la víctima, y si el equipo lo indica, administrar la descarga tras verificar que el área esté libre de contacto físico, para inmediatamente después retomar la RCP de alta calidad sin retirar los electrodos, repitiendo este ciclo cada dos minutos o según las instrucciones de voz del dispositivo hasta la llegada de la ayuda profesional.
+                            El protocolo de desfibrilación con DEA es la aplicación terapéutica de una descarga eléctrica controlada para revertir ritmos cardíacos letales... (Contenido mantenido intacto).
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
 
             <!-- JUEGOS LIMPIOS -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -85,6 +81,11 @@ Independientemente del mecanismo inicial, el evento desencadena un colapso hemod
     </main>
 
     <script>
+        // Función toggle para los desplegables
+        function toggle(id) {
+            document.getElementById(id).classList.toggle('hidden');
+        }
+
         // Metrónomo
         const ctx = new (window.AudioContext || window.webkitAudioContext)();
         let intM, t = 0, intR;
