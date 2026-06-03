@@ -3,49 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SALA 01: Protocolo SVB | ITECSUR</title>
+    <title>Sala 01: Protocolo SVB | ITECSUR</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .museum-bg { background-color: #0f172a; }
+        .text-gold { color: #f59e0b; }
+        .border-gold { border-color: #f59e0b; }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-900 font-sans p-6">
+<body class="museum-bg text-slate-200 p-10 font-sans">
 
-    <nav class="max-w-4xl mx-auto mb-12">
-        <a href="index.html" class="text-sky-600 text-sm font-bold hover:underline">← Volver al museo</a>
+    <nav class="max-w-5xl mx-auto mb-10">
+        <a href="index.html" class="text-xs font-mono text-slate-500 hover:text-gold uppercase tracking-widest">← Volver al catálogo</a>
     </nav>
 
-    <main class="max-w-4xl mx-auto bg-white p-12 border border-slate-200 rounded-2xl shadow-sm">
-        <h1 class="text-3xl font-bold tracking-tight text-sky-950">SALA 01: Protocolo de Soporte Vital Básico</h1>
-        <p class="text-slate-500 mt-2">Guía operativa para la atención prehospitalaria de paciente en paro cardiorrespiratorio.</p>
+    <main class="max-w-5xl mx-auto bg-slate-900 p-12 border border-slate-800 rounded-xl shadow-2xl">
+        <!-- Encabezado técnico -->
+        <header class="border-b border-slate-700 pb-8 mb-10">
+            <h1 class="text-4xl font-bold text-white tracking-tight">Soporte Vital Básico (SVB)</h1>
+            <p class="text-gold mt-2 font-mono text-sm uppercase">Algoritmo de Intervención Prehospitalaria - ITECSUR</p>
+        </header>
 
-        <!-- Mecánica Interactiva: Checklist de Protocolo -->
-        <div class="mt-12 space-y-4">
-            <h3 class="font-bold text-sm uppercase tracking-widest text-slate-400 mb-6">Secuencia de Intervención (Haz clic para confirmar)</h3>
-            
-            <label class="flex items-center p-4 bg-slate-50 border border-slate-200 rounded-lg cursor-pointer hover:bg-sky-50 transition-colors">
-                <input type="checkbox" class="w-5 h-5 text-sky-600 mr-4">
-                <span>Evaluación de seguridad de la escena y estado de conciencia.</span>
-            </label>
-            <label class="flex items-center p-4 bg-slate-50 border border-slate-200 rounded-lg cursor-pointer hover:bg-sky-50 transition-colors">
-                <input type="checkbox" class="w-5 h-5 text-sky-600 mr-4">
-                <span>Activación de sistema de respuesta a emergencias (911).</span>
-            </label>
-            <label class="flex items-center p-4 bg-slate-50 border border-slate-200 rounded-lg cursor-pointer hover:bg-sky-50 transition-colors">
-                <input type="checkbox" class="w-5 h-5 text-sky-600 mr-4">
-                <span>Apertura de vía aérea y verificación de pulso/respiración (máx 10 seg).</span>
-            </label>
-            <label class="flex items-center p-4 bg-slate-50 border border-slate-200 rounded-lg cursor-pointer hover:bg-sky-50 transition-colors">
-                <input type="checkbox" class="w-5 h-5 text-sky-600 mr-4">
-                <span>Inicio de compresiones torácicas de alta calidad (100-120 cpm).</span>
-            </label>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Información técnica (Cargada) -->
+            <div class="space-y-8">
+                <section>
+                    <h3 class="text-lg font-bold border-l-4 border-gold pl-3 mb-4">Parámetros de Reanimación</h3>
+                    <ul class="text-sm text-slate-400 space-y-3 leading-relaxed">
+                        <li>• <strong class="text-white">Profundidad:</strong> Mínimo 5 cm y máximo 6 cm en adultos.</li>
+                        <li>• <strong class="text-white">Frecuencia:</strong> 100 a 120 compresiones por minuto.</li>
+                        <li>• <strong class="text-white">Expansión torácica:</strong> Permitir el retroceso completo tras cada compresión.</li>
+                        <li>• <strong class="text-white">Interrupciones:</strong> Deben ser menores a 10 segundos.</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h3 class="text-lg font-bold border-l-4 border-gold pl-3 mb-4">Algoritmo de Acción</h3>
+                    <p class="text-xs text-slate-500 bg-slate-800 p-4 rounded">El ciclo de atención se basa en la secuencia C-A-B (Compresiones, Vía Aérea, Ventilación), priorizando la perfusión coronaria desde el primer contacto.</p>
+                </section>
+            </div>
+
+            <!-- Interacción Técnica (Checklist de validación) -->
+            <div class="bg-slate-950 p-8 rounded-lg border border-slate-800">
+                <h3 class="text-sm font-bold uppercase text-slate-500 mb-6 tracking-wider">Validación de pasos críticos</h3>
+                <div class="space-y-4">
+                    <label class="flex items-center space-x-4 p-3 border border-slate-700 hover:border-gold cursor-pointer transition">
+                        <input type="checkbox" class="accent-gold w-5 h-5">
+                        <span class="text-sm">Escena segura y evaluación de respuesta.</span>
+                    </label>
+                    <label class="flex items-center space-x-4 p-3 border border-slate-700 hover:border-gold cursor-pointer transition">
+                        <input type="checkbox" class="accent-gold w-5 h-5">
+                        <span class="text-sm">Activación de clave médica (911/DEA).</span>
+                    </label>
+                    <label class="flex items-center space-x-4 p-3 border border-slate-700 hover:border-gold cursor-pointer transition">
+                        <input type="checkbox" class="accent-gold w-5 h-5">
+                        <span class="text-sm">Check de pulso carotídeo (< 10 seg).</span>
+                    </label>
+                    <label class="flex items-center space-x-4 p-3 border border-slate-700 hover:border-gold cursor-pointer transition">
+                        <input type="checkbox" class="accent-gold w-5 h-5">
+                        <span class="text-sm">Compresiones ininterrumpidas ciclo 30:2.</span>
+                    </label>
+                </div>
+            </div>
         </div>
 
-        <!-- Bibliografía específica -->
-        <section class="mt-20 pt-8 border-t border-slate-100">
-            <h5 class="font-bold text-xs uppercase text-slate-400 mb-3">Referencias Académicas</h5>
-            <p class="text-[10px] text-slate-500 leading-relaxed italic">
-                Protocolos de RCP según consensos internacionales de soporte vital. 
-                Documento de referencia para la carrera de Emergencias Médicas - ITECSUR.
-            </p>
-        </section>
+        <!-- Bibliografía -->
+        <footer class="mt-20 pt-8 border-t border-slate-800 text-[10px] text-slate-600 font-mono italic">
+            [REFERENCIA ITECSUR 2026] Manual de protocolos de emergencia prehospitalaria. Consenso científico actualizado.
+        </footer>
     </main>
 
 </body>
