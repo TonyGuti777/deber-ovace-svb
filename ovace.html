@@ -5,65 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sala 02: Unidad OVACE | ITECSUR</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .museum-bg { background-color: #0f172a; }
-        .text-gold { color: #f59e0b; }
-        .border-gold { border-color: #f59e0b; }
-    </style>
 </head>
-<body class="museum-bg text-slate-200 p-10 font-sans">
+<body class="bg-slate-900 text-slate-200 p-10 font-sans">
 
-    <nav class="max-w-5xl mx-auto mb-10">
-        <a href="index.html" class="text-xs font-mono text-slate-500 hover:text-gold uppercase tracking-widest">← Volver al catálogo</a>
-    </nav>
+    <nav class="max-w-5xl mx-auto mb-10"><a href="index.html" class="text-xs font-mono text-slate-500 hover:text-amber-500 uppercase tracking-widest">← Volver al catálogo</a></nav>
 
-    <main class="max-w-5xl mx-auto bg-slate-900 p-12 border border-slate-800 rounded-xl shadow-2xl">
-        <!-- Encabezado técnico -->
-        <header class="border-b border-slate-700 pb-8 mb-10">
-            <h1 class="text-4xl font-bold text-white tracking-tight">Obstrucción Vía Aérea (OVACE)</h1>
-            <p class="text-gold mt-2 font-mono text-sm uppercase">Análisis biomecánico y protocolo de desobstrucción - ITECSUR</p>
+    <main class="max-w-5xl mx-auto bg-slate-950 p-12 border border-slate-800 rounded-xl shadow-2xl">
+        <header class="border-b border-slate-800 pb-8 mb-10">
+            <h1 class="text-4xl font-bold text-white">Obstrucción Vía Aérea (OVACE)</h1>
+            <p class="text-amber-500 mt-2 font-mono text-sm uppercase">Módulo de Simulación Biomecánica - ITECSUR</p>
         </header>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <!-- Información técnica -->
-            <div class="space-y-8">
-                <section>
-                    <h3 class="text-lg font-bold border-l-4 border-gold pl-3 mb-4">Fundamentos Fisiopatológicos</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed">
-                        La OVACE ocurre cuando un cuerpo extraño impacta mecánicamente en la vía aérea superior. 
-                        La efectividad de la maniobra de Heimlich depende de la generación de una presión intratorácica 
-                        positiva repentina, creando un gradiente de flujo capaz de desplazar el objeto desde la glotis.
-                    </p>
-                </section>
-                
-                <section>
-                    <h3 class="text-lg font-bold border-l-4 border-gold pl-3 mb-4">Clasificación de Obstrucción</h3>
-                    <ul class="text-sm text-slate-400 space-y-2">
-                        <li>• <strong class="text-white">Leve:</strong> Intercambio de aire presente. Fomentar tos efectiva.</li>
-                        <li>• <strong class="text-white">Grave:</strong> Intercambio pobre, cianosis, silencio respiratorio. Requiere maniobra activa.</li>
-                    </ul>
-                </section>
+            <!-- Sección de información técnica -->
+            <div class="space-y-6">
+                <h3 class="text-lg font-bold border-l-4 border-amber-500 pl-3">Protocolo de Emergencia</h3>
+                <p class="text-sm text-slate-400 text-justify">La maniobra de Heimlich se fundamenta en la compresión brusca del epigastrio. Según protocolos de ITECSUR, se requiere una fuerza dirigida hacia arriba (cefálica) para maximizar la presión intratorácica. Una presión insuficiente no logrará superar la resistencia mecánica del objeto en la glotis.</p>
             </div>
 
-            <!-- Interacción Técnica (Simulador de Presión) -->
-            <div class="bg-slate-950 p-8 rounded-lg border border-slate-800">
-                <h3 class="text-sm font-bold uppercase text-slate-500 mb-6 tracking-wider">Simulador de Impulso Vectorial</h3>
-                <label class="block text-xs text-slate-400 mb-4">Defina la presión de compresión (Maniobra de Heimlich):</label>
-                <input type="range" min="0" max="100" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-gold mb-6">
-                
-                <div class="p-4 bg-slate-900 border border-slate-800 text-center">
-                    <span class="text-[10px] text-slate-500 uppercase tracking-widest">Resultado de la maniobra</span>
-                    <p class="text-white font-bold mt-2">Vector de desobstrucción: PENDIENTE</p>
+            <!-- Interacción funcional -->
+            <div class="bg-slate-900 p-8 rounded-lg border border-slate-800">
+                <label class="block text-xs uppercase mb-4 text-slate-500">Simulador de presión (Heimlich)</label>
+                <input type="range" id="fuerza" min="0" max="100" value="0" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer accent-amber-500">
+                <div id="resultado" class="mt-6 p-4 text-center border border-slate-700 bg-slate-950 font-bold text-sm">
+                    Ajuste la fuerza para simular la maniobra
                 </div>
-                <p class="text-[10px] text-slate-600 mt-4 italic text-center">Nota: Ajuste el deslizador para calibrar la fuerza necesaria según la masa del paciente.</p>
             </div>
         </div>
 
-        <!-- Bibliografía -->
-        <footer class="mt-20 pt-8 border-t border-slate-800 text-[10px] text-slate-600 font-mono italic">
-            [REFERENCIA ITECSUR 2026] Protocolo de Manejo de Emergencias por Cuerpos Extraños. Unidad Académica de Emergencias Médicas.
-        </footer>
+        <!-- Bibliografía Completa -->
+        <section class="mt-20 pt-8 border-t border-slate-800">
+            <h5 class="text-xs font-bold text-amber-500 uppercase mb-4">Bibliografía Técnica</h5>
+            <ul class="text-[10px] text-slate-500 space-y-2 font-mono">
+                <li>[01] ITECSUR (2026). <em>Manual de Procedimientos en Emergencias Prehospitalarias</em>. Cap. 4: Obstrucción de Vía Aérea.</li>
+                <li>[02] AHA (2025). <em>Guías de Reanimación Cardiopulmonar y Atención Cardiovascular</em>.</li>
+                <li>[03] Sociedad Ecuatoriana de Emergencias. <em>Protocolos de Manejo de Cuerpo Extraño en Adultos</em>.</li>
+            </ul>
+        </section>
     </main>
 
+    <script>
+        const slider = document.getElementById('fuerza');
+        const res = document.getElementById('resultado');
+        slider.addEventListener('input', function() {
+            if(this.value < 40) { res.innerText = "Presión insuficiente: Obstrucción persiste."; res.className = "mt-6 p-4 text-center border border-red-900 bg-red-950 text-red-200 font-bold text-sm"; }
+            else if(this.value < 80) { res.innerText = "Presión adecuada: Desobstrucción parcial."; res.className = "mt-6 p-4 text-center border border-yellow-900 bg-yellow-950 text-yellow-200 font-bold text-sm"; }
+            else { res.innerText = "¡Éxito! Cuerpo extraño expulsado."; res.className = "mt-6 p-4 text-center border border-green-900 bg-green-950 text-green-200 font-bold text-sm"; }
+        });
+    </script>
 </body>
 </html>
