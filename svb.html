@@ -6,77 +6,96 @@
     <title>SALA 01: Soporte Vital Básico | ITECSUR</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .pastel-glow-rose { text-shadow: 0 0 10px #fb7185; }
-        .monitor-scan::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06)); background-size: 100% 2px, 3px 100%; pointer-events: none; }
+        .monitor-scan::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 50%); background-size: 100% 4px; pointer-events: none; }
     </style>
 </head>
-<body class="bg-stone-950 text-stone-300 font-sans p-6 md:p-12">
+<body class="bg-slate-950 text-slate-300 font-sans p-6 md:p-12">
 
-    <nav class="max-w-7xl mx-auto mb-12 border-b border-stone-800 pb-6 flex justify-between items-center">
-        <a href="index.html" class="text-rose-400 font-bold hover:text-white transition">← VESTÍBULO</a>
-        <span class="text-stone-600 text-xs font-mono tracking-widest">SISTEMA CLÍNICO ITECSUR v2.0</span>
+    <!-- Navegación -->
+    <nav class="max-w-7xl mx-auto mb-12 border-b border-slate-800 pb-6 flex justify-between items-center">
+        <a href="index.html" class="text-blue-400 font-bold hover:text-white transition">← VESTÍBULO</a>
+        <span class="text-slate-600 text-xs font-mono tracking-widest">SISTEMA VIRTUAL ITECSUR v2.0</span>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 pb-32">
+    <main class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 pb-32">
         
-        <!-- IZQUIERDA: RELOJ Y CALIBRADOR -->
+        <!-- COLUMNA IZQUIERDA: RELOJ, CALIBRADOR Y RITMO -->
         <div class="lg:col-span-4 space-y-6">
-            <div class="bg-stone-950/80 border border-rose-950/20 p-6 rounded-3xl shadow-xl relative overflow-hidden monitor-scan">
-                <h3 class="text-xs font-mono text-stone-400 font-bold uppercase mb-4">⏱️ Reloj Clínico de Anoxia Cerebral</h3>
-                <div class="bg-stone-900/60 p-4 rounded-2xl border border-stone-800 text-center mb-4">
-                    <div class="text-3xl font-mono text-rose-400 font-bold tracking-wider pastel-glow-rose" id="reloj-isquemia">00:00.00</div>
-                </div>
+            <div class="bg-slate-900 border border-blue-900/30 p-6 rounded-3xl shadow-xl monitor-scan relative">
+                <h3 class="text-xs font-bold text-blue-400 uppercase mb-4">⏱️ Reloj de Anoxia Cerebral</h3>
+                <div class="text-3xl font-mono text-white font-bold text-center py-4 bg-slate-950 rounded-xl" id="reloj-isquemia">00:00.00</div>
                 <div class="grid grid-cols-2 gap-2 mt-4">
-                    <button onclick="controlarReloj('iniciar')" class="bg-rose-400 text-stone-950 font-bold py-3 rounded-xl hover:bg-rose-300 transition">Iniciar Paro</button>
-                    <button onclick="controlarReloj('reiniciar')" class="bg-stone-900 text-stone-400 border border-stone-800 font-bold py-3 rounded-xl hover:text-white transition">Reset</button>
+                    <button onclick="controlarReloj('iniciar')" class="bg-blue-600 text-white font-bold py-2 rounded-lg">Iniciar</button>
+                    <button onclick="controlarReloj('reiniciar')" class="bg-slate-800 text-white font-bold py-2 rounded-lg">Reset</button>
+                </div>
+            </div>
+
+            <div class="bg-slate-900 border border-blue-900/30 p-6 rounded-3xl">
+                <h3 class="text-xs font-bold text-blue-400 uppercase mb-4">📐 Calibrador de Compresión</h3>
+                <input type="range" min="1" max="8" step="0.5" value="2" class="w-full accent-blue-500" oninput="document.getElementById('prof-text').innerText = 'Profundidad: ' + this.value + ' cm'">
+                <p id="prof-text" class="text-xs mt-2 text-blue-300 font-bold">Profundidad: 2 cm</p>
+            </div>
+
+            <div class="bg-slate-900 border border-blue-900/30 p-6 rounded-3xl">
+                <h3 class="text-xs font-bold text-emerald-400 uppercase mb-4">🔊 Ritmo de Compresión</h3>
+                <div class="flex items-center justify-between">
+                    <div id="led-ritmo" class="w-4 h-4 rounded-full bg-slate-950 border border-emerald-500"></div>
+                    <button onclick="contar()" class="bg-slate-950 border border-emerald-900 text-emerald-400 px-4 py-2 rounded font-mono text-sm" id="btn-conteo">CONTEO: 0</button>
                 </div>
             </div>
         </div>
 
-        <!-- DERECHA: INFO Y CONTROLADOR -->
+        <!-- COLUMNA DERECHA: TEORÍA Y JUEGOS -->
         <div class="lg:col-span-8 space-y-8">
-            <img src="https://eboraformacion.es/wp-content/uploads/2023/07/CURSO-RCP-ONLINE.webp" class="rounded-3xl border border-stone-800 w-full shadow-2xl">
-            
-            <!-- CONTROLADOR DE RITMO -->
-            <section class="bg-stone-950/40 border border-stone-800 p-8 rounded-3xl space-y-6">
-                <div class="flex items-center gap-3 border-b border-stone-800 pb-4">
-                    <div class="w-1 h-5 bg-emerald-400 rounded-full"></div>
-                    <h2 class="text-lg font-bold text-stone-100">3.0 Sincronización del Ritmo de Compresión</h2>
+            <header>
+                <h1 class="text-4xl font-black text-white uppercase">Protocolo SVB: Resucitación Avanzada</h1>
+            </header>
+
+            <img src="https://eboraformacion.es/wp-content/uploads/2023/07/CURSO-RCP-ONLINE.webp" class="rounded-3xl w-full border border-slate-800 shadow-2xl">
+
+            <div class="space-y-4">
+                <button onclick="toggle('d1')" class="w-full bg-slate-900 p-4 border border-slate-800 flex justify-between font-bold text-blue-400">FISIOPATOLOGÍA Y GASTO CARDÍACO <span>▼</span></button>
+                <div id="d1" class="hidden p-6 bg-slate-900/50 border border-slate-800 text-sm leading-relaxed text-slate-300">
+                    El PCR implica cese brusco de la actividad cardíaca. El SVB busca mantener el 30% del gasto cardíaco basal. La anoxia tisular en el SNC ocurre tras 4-6 minutos sin perfusión.
                 </div>
-                <div class="bg-stone-900/50 border border-stone-800 p-6 rounded-2xl">
-                    <div class="flex items-center justify-between gap-4">
-                        <div>
-                            <h4 class="text-stone-200 font-bold font-mono text-xs uppercase">🔊 Controlador de Ritmo</h4>
-                            <p class="text-[10px] text-stone-400 mt-1">Haz clic para marcar el pulso (100-120 cpm).</p>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <div id="led-ritmo" class="w-3 h-3 rounded-full bg-stone-950 border border-emerald-500"></div>
-                            <button onclick="contar()" class="font-mono text-xs text-emerald-400 bg-stone-950 border border-emerald-900 px-4 py-2 rounded hover:bg-emerald-950 transition" id="btn-conteo">CONTEO: 0</button>
-                        </div>
-                    </div>
+                
+                <button onclick="toggle('d2')" class="w-full bg-slate-900 p-4 border border-slate-800 flex justify-between font-bold text-blue-400">PARÁMETROS DE CALIDAD <span>▼</span></button>
+                <div id="d2" class="hidden p-6 bg-slate-900/50 border border-slate-800 text-sm text-slate-300">
+                    Frecuencia: 100-120 cpm | Profundidad: 5-6 cm | Ciclos: 30:2 | DEA: Mandatorio en ritmos desfibrilables.
                 </div>
-            </section>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-slate-900 p-6 rounded-lg border border-blue-900">
+                    <h3 class="font-bold mb-4">JUEGO: PRIORIDADES</h3>
+                    <button onclick="juego1(true)" class="w-full p-3 bg-slate-800 hover:bg-blue-900 text-xs mb-2 text-left">1. Seguridad de escena</button>
+                    <button onclick="juego1(false)" class="w-full p-3 bg-slate-800 hover:bg-red-900 text-xs text-left">2. Administrar fármacos</button>
+                    <div id="res1" class="mt-2 font-bold text-xs hidden"></div>
+                </div>
+                <div class="bg-slate-900 p-6 rounded-lg border border-blue-900">
+                    <h3 class="font-bold mb-4">JUEGO: FRECUENCIA</h3>
+                    <button onclick="juego2(false)" class="w-full p-3 bg-slate-800 hover:bg-red-900 text-xs text-left mb-2">A. 60-80 cpm</button>
+                    <button onclick="juego2(true)" class="w-full p-3 bg-slate-800 hover:bg-green-900 text-xs text-left">B. 100-120 cpm</button>
+                    <div id="res2" class="mt-2 font-bold text-xs hidden"></div>
+                </div>
+            </div>
         </div>
     </main>
 
+    <footer class="text-center p-10 text-[10px] text-slate-600 font-mono border-t border-slate-800">
+        [FUENTES ITECSUR 2026] Manual de SVB / Guías AHA 2025-2026.
+    </footer>
+
     <script>
         let tiempo = 0, intervalo, conteo = 0;
-        function controlarReloj(accion) {
-            if (accion === 'iniciar') {
-                if(intervalo) return;
-                intervalo = setInterval(() => {
-                    tiempo += 10;
-                    document.getElementById('reloj-isquemia').innerText = new Date(tiempo).toISOString().substr(14, 8);
-                }, 10);
-            } else { tiempo = 0; clearInterval(intervalo); intervalo = null; document.getElementById('reloj-isquemia').innerText = "00:00.00"; }
+        function controlarReloj(a) {
+            if (a === 'iniciar') { if(!intervalo) intervalo = setInterval(() => { tiempo+=10; document.getElementById('reloj-isquemia').innerText = new Date(tiempo).toISOString().substr(14, 8); }, 10); }
+            else { tiempo = 0; clearInterval(intervalo); intervalo = null; document.getElementById('reloj-isquemia').innerText = "00:00.00"; }
         }
-        function contar() {
-            conteo++;
-            document.getElementById('btn-conteo').innerText = "CONTEO: " + conteo;
-            const led = document.getElementById('led-ritmo');
-            led.style.backgroundColor = '#34d399';
-            setTimeout(() => led.style.backgroundColor = '#0c0a09', 200);
-        }
+        function contar() { conteo++; document.getElementById('btn-conteo').innerText = "CONTEO: " + conteo; document.getElementById('led-ritmo').style.backgroundColor = '#34d399'; setTimeout(() => document.getElementById('led-ritmo').style.backgroundColor = '#0c0a09', 200); }
+        function toggle(id) { document.getElementById(id).classList.toggle('hidden'); }
+        function juego1(ok) { const r = document.getElementById('res1'); r.classList.remove('hidden'); r.innerText = ok ? "¡Correcto!" : "Error"; r.className = "mt-2 p-1 text-center font-bold text-xs " + (ok ? "text-green-500" : "text-red-500"); }
+        function juego2(ok) { const r = document.getElementById('res2'); r.classList.remove('hidden'); r.innerText = ok ? "¡Excelente!" : "Correcto"; r.className = "mt-2 p-1 text-center font-bold text-xs " + (ok ? "text-green-500" : "text-red-500"); }
     </script>
 </body>
 </html>
