@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SALA 01: SVB Clínico | ITECSUR</title>
+    <title>SALA 01: SVB | ITECSUR</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-950 text-slate-300 font-sans p-6 md:p-12">
@@ -15,50 +15,45 @@
 
     <main class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
         
-        <!-- COLUMNA IZQUIERDA: HERRAMIENTAS CLÍNICAS -->
+        <!-- COLUMNA IZQUIERDA: INSTRUMENTOS -->
         <div class="lg:col-span-4 space-y-6">
-            <!-- Reloj -->
+            <!-- Reloj Clínico -->
             <div class="bg-slate-900 p-6 rounded-xl border border-slate-700">
-                <h3 class="text-xs font-bold text-blue-400 uppercase mb-4">⏱️ Cronómetro Isquemia</h3>
+                <h3 class="text-[10px] font-bold text-blue-400 uppercase mb-2">⏱️ Cronómetro de Anoxia (SNC)</h3>
+                <p class="text-[10px] text-slate-500 mb-4 italic">Mide el tiempo transcurrido desde el colapso. Superar los 4-6 min genera daño irreversible.</p>
                 <div id="reloj" class="text-3xl font-mono text-white text-center py-4 bg-black rounded">00:00.00</div>
                 <div class="grid grid-cols-2 gap-2 mt-4">
-                    <button onclick="startReloj()" class="bg-blue-600 text-white font-bold py-2 rounded">Iniciar</button>
-                    <button onclick="resetReloj()" class="bg-slate-700 text-white font-bold py-2 rounded">Reset</button>
+                    <button onclick="startReloj()" class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 rounded text-sm">Iniciar</button>
+                    <button onclick="resetReloj()" class="bg-slate-700 hover:bg-slate-600 text-white font-bold py-2 rounded text-sm">Reset</button>
                 </div>
             </div>
 
-            <!-- Caja de Ritmos (Funcional) -->
+            <!-- Metrónomo RCP -->
             <div class="bg-slate-900 p-6 rounded-xl border border-slate-700">
-                <h3 class="text-xs font-bold text-emerald-400 uppercase mb-4">🔊 Metrónomo RCP (100-120 bpm)</h3>
-                <button onclick="playBeep()" class="w-full bg-emerald-900 hover:bg-emerald-800 text-white font-bold py-4 rounded transition">
-                    MARCAR PULSO (CLICK)
-                </button>
-                <p id="contador" class="text-center font-mono mt-4 text-xl text-emerald-400">COMPRESIONES: 0</p>
+                <h3 class="text-[10px] font-bold text-emerald-400 uppercase mb-4">🔊 Metrónomo RCP (110 BPM)</h3>
+                <button id="btn-metronomo" onclick="toggleMetronomo()" class="w-full bg-emerald-900 hover:bg-emerald-700 text-white font-bold py-4 rounded transition">INICIAR RITMO</button>
+                <p class="text-[10px] text-slate-500 mt-2 text-center">Frecuencia exigida: 100-120 cpm</p>
             </div>
         </div>
 
-        <!-- COLUMNA DERECHA: TEORÍA AVANZADA -->
+        <!-- COLUMNA DERECHA: TEORÍA E IMAGEN -->
         <div class="lg:col-span-8 space-y-6">
+            <!-- Imagen recuperada -->
+            <img src="https://eboraformacion.es/wp-content/uploads/2023/07/CURSO-RCP-ONLINE.webp" class="rounded-xl w-full border border-slate-800 shadow-2xl">
+
             <div class="bg-slate-900 p-8 rounded-xl border border-slate-800">
-                <h2 class="text-2xl font-bold text-white mb-6">Fundamentos Fisiopatológicos</h2>
-                
+                <h2 class="text-2xl font-bold text-white mb-6">Protocolo de Alta Calidad</h2>
                 <div class="space-y-4">
                     <div class="border-b border-slate-800 pb-4">
-                        <button onclick="toggle('info1')" class="font-bold text-blue-400">1. MECÁNICA DE LA PERFUSIÓN CORONARIA [+ INFO]</button>
-                        <div id="info1" class="hidden mt-2 text-sm text-slate-400 leading-relaxed">
-                            El objetivo primario del SVB es mantener la presión de perfusión coronaria (PPC). Las compresiones torácicas deben asegurar una profundidad de 5-6 cm para optimizar la bomba torácica. Sin una expansión torácica completa, el retorno venoso es nulo, lo que reduce el gasto cardíaco a menos del 10% del basal, haciendo ineficaz la maniobra.
+                        <button onclick="toggle('info1')" class="font-bold text-blue-400 text-left w-full">1. FISIOPATOLOGÍA DEL PCR [+ INFO TÉCNICA]</button>
+                        <div id="info1" class="hidden mt-3 text-sm text-slate-400 leading-relaxed">
+                            El paro cardiorrespiratorio detiene la perfusión cerebral y coronaria. Las compresiones de alta calidad son vitales para mantener la PPC (Presión de Perfusión Coronaria). Se requiere una profundidad de 5-6 cm para que el ventrículo izquierdo sea comprimido adecuadamente contra el esternón.
                         </div>
                     </div>
-                    
                     <div class="border-b border-slate-800 pb-4">
-                        <button onclick="toggle('info2')" class="font-bold text-blue-400">2. CADENA DE SUPERVIVENCIA (AHA 2026) [+ INFO]</button>
-                        <div id="info2" class="hidden mt-2 text-sm text-slate-400 leading-relaxed">
-                            <ul class="list-disc pl-4 space-y-2">
-                                <li><strong>Activación:</strong> Reconocimiento precoz y llamada a emergencias.</li>
-                                <li><strong>RCP Inmediata:</strong> Compresiones de alta calidad.</li>
-                                <li><strong>Desfibrilación:</strong> Uso temprano de DEA para ritmos en FV/TV sin pulso.</li>
-                                <li><strong>Soporte Avanzado:</strong> Cuidados post-paro por personal especializado.</li>
-                            </ul>
+                        <button onclick="toggle('info2')" class="font-bold text-blue-400 text-left w-full">2. PROTOCOLO DE DESFIBRILACIÓN (DEA) [+ INFO TÉCNICA]</button>
+                        <div id="info2" class="hidden mt-3 text-sm text-slate-400 leading-relaxed">
+                            El DEA debe aplicarse inmediatamente al estar disponible. En ritmos de fibrilación ventricular (FV) o taquicardia ventricular sin pulso, el choque eléctrico es la única maniobra capaz de despolarizar el miocardio para recuperar un ritmo sinusal organizado.
                         </div>
                     </div>
                 </div>
@@ -67,21 +62,26 @@
     </main>
 
     <script>
-        // Lógica Audio
         const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        let intervalMetronomo, t = 0, intervalReloj;
+
         function playBeep() {
             const osc = ctx.createOscillator();
             osc.connect(ctx.destination);
-            osc.start();
-            osc.stop(ctx.currentTime + 0.1);
-            conteo++;
-            document.getElementById('contador').innerText = "COMPRESIONES: " + conteo;
+            osc.start(); osc.stop(ctx.currentTime + 0.1);
         }
 
-        // Lógica Reloj
-        let t = 0, interval, conteo = 0;
-        function startReloj() { if(!interval) interval = setInterval(() => { t+=10; document.getElementById('reloj').innerText = new Date(t).toISOString().substr(14, 8); }, 10); }
-        function resetReloj() { t = 0; conteo = 0; clearInterval(interval); interval = null; document.getElementById('reloj').innerText = "00:00.00"; document.getElementById('contador').innerText = "COMPRESIONES: 0"; }
+        function toggleMetronomo() {
+            const btn = document.getElementById('btn-metronomo');
+            if (intervalMetronomo) {
+                clearInterval(intervalMetronomo); intervalMetronomo = null; btn.innerText = "INICIAR RITMO";
+            } else {
+                intervalMetronomo = setInterval(playBeep, 545); btn.innerText = "DETENER RITMO";
+            }
+        }
+
+        function startReloj() { if(!intervalReloj) intervalReloj = setInterval(() => { t+=10; document.getElementById('reloj').innerText = new Date(t).toISOString().substr(14, 8); }, 10); }
+        function resetReloj() { t = 0; clearInterval(intervalReloj); intervalReloj = null; document.getElementById('reloj').innerText = "00:00.00"; }
         function toggle(id) { document.getElementById(id).classList.toggle('hidden'); }
     </script>
 </body>
